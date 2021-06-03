@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import br.pb.curso.core.BaseTeste;
+import br.pb.curso.core.Propriedades;
 import br.pb.curso.pages.MenuPage;
 import br.pb.curso.pages.MovimentacaoPage;
 import br.pb.curso.utils.DataUtils;
@@ -37,7 +38,7 @@ public class MovimentacaoTest extends BaseTeste {
 		movPage.setDescricao("Qualquer coisa");
 		movPage.setInteressado(interessado);
 		movPage.setValor(valor);
-		movPage.setConta("Conta de Teste Alterada");
+		movPage.setConta(Propriedades.NOME_CONTA_ALTERADA);
 		movPage.setStatusPago();
 		movPage.salvar();
 		
@@ -73,7 +74,7 @@ public class MovimentacaoTest extends BaseTeste {
 		movPage.setDescricao(descricao);
 		movPage.setInteressado(interessado);
 		movPage.setValor(valor);
-		movPage.setConta("Conta de Teste Alterada");
+		movPage.setConta(Propriedades.NOME_CONTA_ALTERADA);
 		movPage.setStatusPago();
 		movPage.salvar();
 		

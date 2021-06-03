@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import br.pb.curso.core.BaseTeste;
+import br.pb.curso.core.Propriedades;
 import br.pb.curso.pages.ContasPage;
 import br.pb.curso.pages.MenuPage;
 
@@ -16,7 +17,7 @@ public class RemoveMovimentacaoContaTest extends BaseTeste {
 	public void testExcluirContaComMovimentacao() {
 		menuPage.acessarTelaListarConta();
 		
-		contaPage.clicarExcluirConta("Conta de Teste Alterada");
+		contaPage.clicarExcluirConta(Propriedades.NOME_CONTA_ALTERADA);
 		
 		Assert.assertEquals("Conta em uso na movimentações", contaPage.obterMensagemErro());
 		

@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import br.pb.curso.core.BaseTeste;
+import br.pb.curso.core.Propriedades;
 import br.pb.curso.pages.ContasPage;
 import br.pb.curso.pages.MenuPage;
 
@@ -36,7 +37,7 @@ public class ContaTest extends BaseTeste {
 		
 		contaPage.clicarAlterarConta("Conta do Teste");
 		
-		contaPage.setNome("Conta de Teste Alterada");
+		contaPage.setNome(Propriedades.NOME_CONTA_ALTERADA);
 		contaPage.salvar();
 		
 		Assert.assertEquals(alteradaComSucesso, contaPage.obterMensagemSucesso());		
@@ -46,7 +47,7 @@ public class ContaTest extends BaseTeste {
 	public void test3_InserirContaMesmoNome() {
 		
 		menuPage.acessarTelaInserirConta();
-		contaPage.setNome("Conta de Teste Alterada");
+		contaPage.setNome(Propriedades.NOME_CONTA_ALTERADA);
 		contaPage.salvar();
 		
 		Assert.assertEquals(mensagemErro, contaPage.obterMensagemErro());
