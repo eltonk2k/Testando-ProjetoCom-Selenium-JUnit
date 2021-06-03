@@ -1,12 +1,15 @@
 package br.pb.curso.teste;
 
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import br.pb.curso.core.BaseTeste;
 import br.pb.curso.pages.ContasPage;
 import br.pb.curso.pages.MenuPage;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ContaTest extends BaseTeste {
 	
 	MenuPage menuPage = new MenuPage();
@@ -18,7 +21,7 @@ public class ContaTest extends BaseTeste {
 	
 	
 	@Test
-	public void testInserirConta() {
+	public void test1_InserirConta() {
 		menuPage.acessarTelaInserirConta();
 		
 		
@@ -28,7 +31,7 @@ public class ContaTest extends BaseTeste {
 	}
 	
 	@Test
-	public void testAlterarConta() {
+	public void test2_AlterarConta() {
 		menuPage.acessarTelaListarConta();
 		
 		contaPage.clicarAlterarConta("Conta do Teste");
@@ -40,7 +43,7 @@ public class ContaTest extends BaseTeste {
 	}
 	
 	@Test
-	public void testInserirContaMesmoNome() {
+	public void test3_InserirContaMesmoNome() {
 		
 		menuPage.acessarTelaInserirConta();
 		contaPage.setNome("Conta de Teste Alterada");
@@ -49,14 +52,6 @@ public class ContaTest extends BaseTeste {
 		Assert.assertEquals(mensagemErro, contaPage.obterMensagemErro());
 	}
 	
-	@Test
-	public void testExcluirContaComMovimentacao() {
-		menuPage.acessarTelaListarConta();
-		
-		contaPage.clicarExcluirConta("Conta de Teste Alterada");
-		
-		Assert.assertEquals("Conta em uso na movimentações", contaPage.obterMensagemErro());
-		
-	}
+	
 
 }

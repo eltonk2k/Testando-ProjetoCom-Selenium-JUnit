@@ -7,13 +7,16 @@ import java.util.Date;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import br.pb.curso.core.BaseTeste;
 import br.pb.curso.pages.MenuPage;
 import br.pb.curso.pages.MovimentacaoPage;
 import br.pb.curso.utils.DataUtils;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MovimentacaoTest extends BaseTeste {
 	
 	private MenuPage menuPage = new MenuPage();
@@ -26,7 +29,7 @@ public class MovimentacaoTest extends BaseTeste {
 	private static String mensagem = "Movimentação adicionada com sucesso!";
 	
 	@Test
-	public void testInserirMovimentacao() {
+	public void test1InserirMovimentacao() {
 		menuPage.acessarTelaInserirMovimentacao();
 		
 		movPage.setDataMovimentacao(obterDataFormatada(new Date()));
@@ -42,7 +45,7 @@ public class MovimentacaoTest extends BaseTeste {
 	}
 	
 	@Test
-	public void testCamposObrigatorios() {
+	public void test2CamposObrigatorios() {
 		menuPage.acessarTelaInserirMovimentacao();
 		
 		movPage.salvar();	
@@ -57,7 +60,7 @@ public class MovimentacaoTest extends BaseTeste {
 	}
 	
 	@Test
-	public void testInserirMovimentacaoFutura() {
+	public void test3InserirMovimentacaoFutura() {
 		menuPage.acessarTelaInserirMovimentacao();
 		
 		Date dataFutura = DataUtils.obterDataComDiferencaDias(5);
@@ -70,7 +73,7 @@ public class MovimentacaoTest extends BaseTeste {
 		movPage.setDescricao(descricao);
 		movPage.setInteressado(interessado);
 		movPage.setValor(valor);
-		movPage.setConta("conta2");
+		movPage.setConta("Conta de Teste Alterada");
 		movPage.setStatusPago();
 		movPage.salvar();
 		
