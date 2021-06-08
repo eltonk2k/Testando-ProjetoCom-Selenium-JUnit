@@ -1,5 +1,6 @@
 package br.pb.curso.teste;
 
+import static br.pb.curso.utils.DataUtils.obterDataComDiferencaDias;
 import static br.pb.curso.utils.DataUtils.obterDataFormatada;
 
 import java.util.Arrays;
@@ -15,7 +16,7 @@ import br.pb.curso.core.BaseTeste;
 import br.pb.curso.core.Propriedades;
 import br.pb.curso.pages.MenuPage;
 import br.pb.curso.pages.MovimentacaoPage;
-import br.pb.curso.utils.DataUtils;
+
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MovimentacaoTest extends BaseTeste {
@@ -64,10 +65,10 @@ public class MovimentacaoTest extends BaseTeste {
 	public void test3InserirMovimentacaoFutura() {
 		menuPage.acessarTelaInserirMovimentacao();
 		
-		Date dataFutura = DataUtils.obterDataComDiferencaDias(5);
+		Date dataFutura = obterDataComDiferencaDias(5);
 		
-		movPage.setDataMovimentacao(DataUtils.obterDataFormatada(dataFutura));
-		movPage.setDataPagamento(DataUtils.obterDataFormatada(dataFutura));
+		movPage.setDataMovimentacao(obterDataFormatada(dataFutura));
+		movPage.setDataPagamento(obterDataFormatada(dataFutura));
 		
 //		movPage.setDataMovimentacao("01/06/2024");
 //		movPage.setDataPagamento("01/06/2025");

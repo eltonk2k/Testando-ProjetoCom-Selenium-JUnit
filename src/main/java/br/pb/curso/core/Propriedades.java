@@ -10,7 +10,7 @@ public class Propriedades {
 	
 	public enum Browsers {
 		CHROME,
-		FIREFOX
+		FIREFOX,
 	}
 	
 
